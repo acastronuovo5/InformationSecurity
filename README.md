@@ -1,9 +1,9 @@
 # InformationSecurity
 
 
-Classwork from CS391:
+Classwork from CS391
 
-Some projects include:
+Projects include:
 - Cross Site Scripting
 - SQL injection
 - Cross-Site-Request-Forgery
@@ -11,4 +11,6 @@ Some projects include:
 - Garmin Ransomware Research
 - Password Hashing Brute Force
 - Concrete5 Vulnerability Report
+
+- (No files included) Inspected packets using wireshark
 
